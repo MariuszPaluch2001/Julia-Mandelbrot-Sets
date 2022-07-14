@@ -1,4 +1,4 @@
-from src.julia_set import list_interval, yield_complex_cord
+from src.julia_set import list_interval, yield_complex_cord, calculate_z_serial
 import pytest
 
 def test_list_interval():
@@ -20,3 +20,13 @@ def test_yield_complex_cord():
     complex_cords = [cord for cord in yield_complex_cord(xs, ys)]
 
     assert complex_cords == [1 + 0j, 2+0j, 1+3j, 2+3j]
+
+def test_z_serial_output():
+    x1, x2, y1, y2 = -1.8, 1.8, -1.8, 1.8
+    c = complex(-0.62772, -.42193)
+
+    xs, ys = list_interval(x1, x2, y1, y2, 1000)
+
+    output = calculate_z_serial(300, xs, ys, c)
+    
+    assert sum(output) == 33219980
