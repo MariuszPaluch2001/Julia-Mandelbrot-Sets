@@ -1,4 +1,4 @@
-from src.julia_set import list_interval
+from src.julia_set import list_interval, yield_complex_cord
 import pytest
 
 def test_list_interval():
@@ -12,3 +12,11 @@ def test_list_interval_empty():
     xs, ys = list_interval(x1,x2,y1,y2,desired_width)
     assert len(xs) == 0
     assert len(ys) == 0
+
+def test_yield_complex_cord():
+    xs = [1,2]
+    ys = [0,3]
+
+    complex_cords = [cord for cord in yield_complex_cord(xs, ys)]
+
+    assert complex_cords == [1 + 0j, 2+0j, 1+3j, 2+3j]
