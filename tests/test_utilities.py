@@ -1,4 +1,5 @@
-from src.julia_set import list_interval, yield_complex_cord, calculate_z_serial
+from src.julia_set import calculate_z_serial
+from src.utilities import list_interval, yield_complex_cord
 import pytest
 
 def test_list_interval():
