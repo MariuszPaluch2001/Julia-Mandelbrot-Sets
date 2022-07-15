@@ -1,5 +1,6 @@
 from src.utilities import list_interval, yield_complex_cord
 
+# @profile
 def calculate_z_serial_mandelbrot(max_iteration, xs, ys):
     output = []
     for z in yield_complex_cord(xs, ys):
