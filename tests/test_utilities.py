@@ -1,4 +1,4 @@
-from src.julia_set import calculate_z_serial
+from src.julia_set import calculate_z_serial_julia
 from src.utilities import list_interval, yield_complex_cord
 import pytest
 
@@ -28,5 +28,5 @@ def test_z_serial_output():
 
     xs, ys = list_interval(x1, x2, y1, y2, 1000)
 
-    output = calculate_z_serial(300, xs, ys, c)
+    output = calculate_z_serial_julia(300, xs, ys, c)
     assert sum(output) == 33219980
