@@ -1,6 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from functools import wraps
+import time
+
+
+def timefn(fn):
+    @wraps(fn)
+    def measure_time(*args, **kwargs):
+        t1 = time.time()
+        result = fn(*args, **kwargs)
+        t2 = time.time()
+        print(f"@timefn: {fn.__name__} took {t2 - t1} seconds")
+        return result
+    return measure_time
+
 def list_interval(x1, x2, y1, y2, desired_width):
     x_epsilon = abs(x2 - x1) / desired_width
     y_epsilon = abs(y2 - y1) / desired_width

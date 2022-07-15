@@ -1,12 +1,11 @@
-from utilities import list_interval, yield_complex_cord
-
+from src.utilities import list_interval, yield_complex_cord
 
 def calculate_z_serial(max_iteration, xs, ys, c):
     output = []
     for z in yield_complex_cord(xs, ys):
         n = 0
         while abs(z) < 2 and n < max_iteration:
-            z = z**2 + c
+            z = z*z + c
             n += 1
 
         output.append(n)
